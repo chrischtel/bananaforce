@@ -1,0 +1,67 @@
+name: CI
+
+on:
+    push:
+        branches: [main, dev, ci-experiment]
+    pull_request:
+        branches: [main, dev]
+# This is a comment
+jobs:
+    test:
+        name: Test on ${{ matrix.os }} with Zig ${{ matrix.zig-version }}
+        runs-on: ${{ matrix.os }}
+        
+        strategy:
+            fail-fast: false
+            matrix:
+                os: [ubuntu-latest, windows-latest, macos-latest]
+                zig-version: [master, 0.14.1]
+        
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            
+            - name: Setup Zig
+              uses: mlugg/setup-zig@v2
+              with:
+                  version: ${{ matrix.zig-version }}
+            
+
+            - name: Verify Zig installation
+              run: zig version
+            
+            - name: Build project
+              run: zig build
+            
+            - name: Run tests
+              run: zig build test
+            
+            - name: Upload artifacts
+              if: matrix.zig-version == '0.14.1' && matrix.os == 'ubuntu-latest'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: bananaforce-artifacts
+                  path: |
+                      zig-out/bin/
+                      zig-out/lib/
+                  retention-days: 30
+
+    lint:
+        name: Lint and format check
+        runs-on: ubuntu-latest
+        
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+            
+            - name: Setup Zig
+              uses: mlugg/setup-zig@v2
+              with:
+                  version: 0.14.1
+            
+            - name: Check formatting
+              run: zig fmt --check .
+            
+            - name: Validate build.zig
+              run: zig build --help >/dev/null
+
