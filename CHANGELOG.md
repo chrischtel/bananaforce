@@ -13,6 +13,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - Mathematical utility functions (lerp, clamp, approximately)
 - Mathematical constants (PI, TAU, DEG_TO_RAD, RAD_TO_DEG)
 
+
+### Changed
+
+### Technical Debt
+- Updated CI workflow to ignore documentation and license files for push events
+
 ### Deprecated
 
 ### Removed
