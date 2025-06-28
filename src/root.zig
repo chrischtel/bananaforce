@@ -4,7 +4,7 @@
 //! This is the main library entry point.
 //!
 //! Usage:
-//!   const bf = @import("bf");
+//!   const bf = @import("bananaforce");
 //!   const world = bf.World.init(allocator);
 //!   const body = world.addRigidBody(.{ .position = bf.math.Vec2.init(0, 0) });
 
