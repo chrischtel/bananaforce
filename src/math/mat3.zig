@@ -2,7 +2,7 @@ const std = @import("std");
 const Vec3 = @import("vec3.zig").Vec3;
 
 /// A 3x3 matrix stored in column-major order
-/// Useful for 2D transformations, rotations, and general 3x3 linear algebra
+/// Useful for 2D transformations, rotations, and general 3x3 linear algebra.
 pub const Mat3 = struct {
     // Stored in column-major order: [col0, col1, col2]
     // m[0] m[3] m[6]
