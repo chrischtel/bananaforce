@@ -8,19 +8,19 @@ const print = std.debug.print;
 const bf = @import("bananaforce_lib");
 
 pub fn main() !void {
-    print("=== BF - BananaForce Demo ===\n\n", .{});
+    print("=== BananaForce Physics Engine Demo ===\n\n", .{});
 
     // Math Module Demo
-    print("📐 Math Module Demo:\n", .{});
+    print("Math Module Demo:\n", .{});
     demonstrateMath();
 
-    // === Vec3 Module Demo ===
-    print("\n🌐 Vec3 Module Demo:\n", .{});
+    // Vec3 Module Demo
+    print("\nVec3 Module Demo:\n", .{});
     demonstrateVec3();
 
-    print("\n🎯 Demo completed successfully!\n", .{});
-    print("🧪 Run 'zig build test' to run all unit tests.\n", .{});
-    print("📚 Vec2: 8 tests, Vec3: 11 tests, Total: 19+ math tests passing!\n", .{});
+    print("\nDemo completed successfully!\n", .{});
+    print("Run 'zig build test' to run all unit tests.\n", .{});
+    print("Vec2: 8 tests, Vec3: 11 tests, Total: 19+ math tests passing!\n", .{});
 }
 
 fn demonstrateMath() void {
