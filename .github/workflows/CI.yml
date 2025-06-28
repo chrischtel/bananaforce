@@ -2,9 +2,19 @@ name: CI
 
 on:
     push:
-        branches: [main, dev, ci-experiment]
+      branches: [main, dev, ci-experiment]
+      paths-ignore:
+        - '**.md'
+        - 'docs/**'
+        - 'LICENSE'
+        - 'README*'
     pull_request:
         branches: [main, dev]
+        paths-ignore:
+            - '**.md'
+            - 'docs/**'
+            - 'LICENSE'
+            - 'README*'
         
 jobs:
     test:
